@@ -41,7 +41,7 @@ interface=wlan0
 dhcp-range=10.0.0.2,10.0.0.5,255.255.255.0,12h 
 ```
 
-You now have an open access point called `a_potato`.
+Reboot your device and an open access point called `a_potato` will automatically run!
 You should be able to see it and connect to it from another device, however it may give you a warning about not having an internet connection.
 
 Credit:
@@ -53,4 +53,4 @@ Credit:
 ```
 $ apt-get install apache2
 ```
-You shoudl be able to acess the apache homepage now by connecting to the wifi network and going to `http://10.0.0.1`
+You should be able to acess the apache homepage now by connecting to the wifi network and going to `http://10.0.0.1`
