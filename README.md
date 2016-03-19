@@ -43,3 +43,14 @@ dhcp-range=10.0.0.2,10.0.0.5,255.255.255.0,12h
 
 You now have an open access point called `a_potato`.
 You should be able to see it and connect to it from another device, however it may give you a warning about not having an internet connection.
+
+Credit:
+- https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd
+- http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1
+- https://nims11.wordpress.com/2012/04/27/hostapd-the-linux-way-to-create-virtual-wifi-access-point
+
+# Setup local server
+```
+$ apt-get install apache2
+```
+You shoudl be able to acess the apache homepage now by connecting to the wifi network and going to `http://10.0.0.1`
