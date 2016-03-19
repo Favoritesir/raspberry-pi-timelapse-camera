@@ -1,0 +1,45 @@
+# raspberry-pi-timelapse-camera
+
+# Setup Access Point
+After install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) run:
+```
+$ sudo -s
+$ apt-get install hostapd
+$ apt-get install dnsmasq
+$ apt-get update
+```
+
+Edit the `iface wlan0` part of your `/etc/network/interfaces` file to look like:
+```
+iface wlan0 inet static
+    address 10.0.0.1
+    netmask 255.255.255.0
+```
+
+At the bottom of `/etc/dhcpcd.conf` add:
+```
+interface wlan0  
+    static ip_address=172.24.1.1/24
+```
+
+Edit the `DAEMON_CONF` part of your `/etc/default/hostapd` file to look like:
+```
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
+
+Make a `/etc/hostapd/hostapd.conf` file with:
+```
+interface=wlan0
+driver=nl80211
+ssid=a_potato
+channel=1
+```
+
+Make a `/etc/dnsmasq.conf` file with:
+```
+interface=wlan0
+dhcp-range=10.0.0.2,10.0.0.5,255.255.255.0,12h 
+```
+
+You now have an open access point called `a_potato`.
+You should be able to see it and connect to it from another device, however it may give you a warning about not having an internet connection.
