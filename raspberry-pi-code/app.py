@@ -23,7 +23,7 @@ while True:
     for x in range(2):
         lat2, lon2 = get_latlon()
         gps_readings_diff = vincenty((lat, lon), (lat2, lon2)).miles
-        assert gps_readings_diff > 10, "GPS accuracy isn't good enough"
+        assert gps_readings_diff < 10, "GPS accuracy isn't good enough"
 
     # set GPSLatitude (credit: http://bit.ly/1Rg78PV)
     camera.exif_tags['GPS.GPSLatitudeRef'] = 'N' if lat > 0 else 'S'
