@@ -23,7 +23,7 @@ latlong_is_accurate = True
 for x in range(2):
     lat2, lon2 = get_latlon()
     gps_readings_diff = vincenty((lat, lon), (lat2, lon2)).miles
-    if gps_readings_diff < 10:
+    if gps_readings_diff > 10:
         latlong_is_accurate = False
 print '- latlong accurate: {}'.format(str(latlong_is_accurate))
 
