@@ -1,4 +1,4 @@
-import datetime, serial, picamera, math
+import datetime, time, math, serial, picamera
 from geopy.distance import vincenty
 
 SERIAL_PORT_USED_BY_LINKITONE = '/dev/ttyACM0'
