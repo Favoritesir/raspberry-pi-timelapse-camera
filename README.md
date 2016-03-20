@@ -69,5 +69,7 @@ Credit:
 # Communicating with the LinkitOne
 Deploy the LinkitOne application through the regular Arduino upload method. Then connect it to the Raspberry Pi and run:
 ```
-$ sudo apt-get install python-serial
+$ apt-get install python-serial
+$ apt-get install git
+$ git clone https://github.com/Manoj-nathwani/raspberry-pi-timelapse-camera.git
 ```
