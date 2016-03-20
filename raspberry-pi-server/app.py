@@ -11,7 +11,7 @@ app = Flask(
 
 @app.route('/')
 def hello():
-    names = os.listdir(os.path.join(app.static_folder, 'imgs'))
+    names = os.listdir(app.static_folder)
     files = url_for('static', filename=os.path.join('imgs', names))
     return render_template('index.html', files=files)
 
