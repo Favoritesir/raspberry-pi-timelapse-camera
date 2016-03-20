@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask import render_template
+from flask import url_for, render_template
 
 FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
 
