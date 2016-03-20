@@ -11,9 +11,10 @@ app = Flask(
 
 @app.route('/')
 def hello():
-    images = os.listdir(app.static_folder)
-    for image in images:
-        image = url_for('static', filename=image)
+    files = os.listdir(app.static_folder)
+    images = []
+    for image in files:
+        images.append(url_for('static', filename=image))
     return render_template('index.html', files=images)
 
 if __name__ == '__main__':
