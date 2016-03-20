@@ -4,9 +4,10 @@ from geopy.distance import vincenty
 SERIAL_PORT_USED_BY_LINKITONE = '/dev/ttyACM0'
 FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick/'
 
+camera = picamera.PiCamera()
+
 while True:
-    print 'About to take a picture...'
-    camera = picamera.PiCamera()
+    print 'About to take a picture...'   
 
     # get latlong
     def get_latlon():
