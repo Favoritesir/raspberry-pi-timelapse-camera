@@ -13,7 +13,7 @@ app = Flask(
 def hello():
     images = os.listdir(app.static_folder)
     for image in images:
-        img_url = url_for('static', filename=image)
+        image = url_for('static', filename=image)
     return render_template('index.html', files=images)
 
 if __name__ == '__main__':
