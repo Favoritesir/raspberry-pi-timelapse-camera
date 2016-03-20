@@ -2,9 +2,9 @@ import datetime, math, serial, picamera
 from geopy.distance import vincenty
 
 SERIAL_PORT_USED_BY_LINKITONE = '/dev/ttyACM0'
-FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick/'
+FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
 
-print 'About to take a picture...'
+print 'Initializing camera...'
 camera = picamera.PiCamera()
 
 print 'Fetching latlong...'
@@ -16,7 +16,7 @@ def get_latlon():
     lon = lon/100 # accounts for bad Linkit One example code
     return lat, lon
 lat, lon = get_latlon()
-print 'Found GPS location of {}, {}'.format(lat, lon)
+print '- Found GPS location of {}, {}'.format(lat, lon)
 
 print 'Checking if latlong is accurate...'
 latlong_is_accurate = True
@@ -25,7 +25,7 @@ for x in range(2):
     gps_readings_diff = vincenty((lat, lon), (lat2, lon2)).miles
     if gps_readings_diff < 10:
         latlong_is_accurate = False
-print 'latlong is accurate: ' + str(latlong_is_accurate)
+print '- latlong accurate: {}'.format(str(latlong_is_accurate))
 
 if latlong_is_accurate:
     # set GPSLatitude (credit: http://bit.ly/1Rg78PV)
@@ -46,6 +46,6 @@ if latlong_is_accurate:
 
 print 'Taking picture...'
 timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
-filename = timestamp + '.jpg'
-camera.capture(FOLDER_TO_SAVE_IMAGES_TO + filename)
-print 'Image saved as {}'.format(filename)
+filename = '{}/{}.{}'.format(FOLDER_TO_SAVE_IMAGES_TO, timestamp, '.jpg')
+camera.capture(filename)
+print '- Image saved as {}'.format(filename)
