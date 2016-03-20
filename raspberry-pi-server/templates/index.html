@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
-    <title>Hello world</title>
+    <title>Raspberry Pi Cam</title>
+
+    <style>
+      img{
+        width: 100%;
+      }
+    </style>
+
   </head>
   <body>
 
-    <ul>
+    <div>
       {% for file in files %}
-        <li>
-          <span>{{ file }}</span>
-          <img src="{{ file }}" />
-        </li>
+        <img src="{{ file }}" />
       {% endfor %}
-    </ul>
+    </div>
 
   </body>
 </html>
