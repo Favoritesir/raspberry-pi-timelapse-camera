@@ -11,8 +11,10 @@ app = Flask(
 
 @app.route('/')
 def hello():
-    files = os.listdir(app.static_folder)
-    return render_template('index.html', files=files)
+    images = os.listdir(app.static_folder)
+    for image in images:
+        img_url = url_for('static', filename=image)
+    return render_template('index.html', files=images)
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
