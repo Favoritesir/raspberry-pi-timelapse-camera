@@ -8,7 +8,10 @@
 
     <ul>
       {% for file in files %}
-        <li><img src="{{ file }}" /></li>
+        <li>
+          <span>{{ file }}</span>
+          <img src="{{ file }}" />
+        </li>
       {% endfor %}
     </ul>
 
