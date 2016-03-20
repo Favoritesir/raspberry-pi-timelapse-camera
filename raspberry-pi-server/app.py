@@ -4,8 +4,10 @@ from flask import render_template
 
 FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
 
-app = Flask(__name__)
-app = Flask(static_folder=FOLDER_TO_SAVE_IMAGES_TO)
+app = Flask(
+    __name__,
+    static_folder=FOLDER_TO_SAVE_IMAGES_TO
+)
 
 @app.route('/')
 def hello():
