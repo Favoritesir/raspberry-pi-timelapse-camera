@@ -7,6 +7,7 @@ $ sudo -s
 $ apt-get install hostapd
 $ apt-get install dnsmasq
 $ apt-get update
+$ apt-get upgrade
 ```
 
 Edit the `iface wlan0` part of your `/etc/network/interfaces` file to look like:
