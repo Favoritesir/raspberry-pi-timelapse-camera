@@ -6,6 +6,7 @@ FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
 
 print 'Initializing camera...'
 camera = picamera.PiCamera()
+camera.led = False
 
 print 'Fetching latlong...'
 def get_latlon():
