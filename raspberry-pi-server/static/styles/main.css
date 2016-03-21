@@ -1,0 +1,16 @@
+body{
+  padding: 10px;
+}
+.table{
+  margin: 0;
+}
+img{
+  width: 100%;
+  border-radius: 4px;
+}
+.btn-danger{
+  position: absolute;
+  right: 15px;
+  border: none;
+  border-radius: 0 4px 0 4px;
+}

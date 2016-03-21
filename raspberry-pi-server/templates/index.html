@@ -2,23 +2,44 @@
 <html>
   <head>
 
-    <meta charset="utf-8">
     <title>Raspberry Pi Cam</title>
-
-    <style>
-      img{
-        width: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="static/styles/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="static/styles/main.css" type="text/css">
 
   </head>
   <body>
 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Stats
+      </div>
+      <table class="table">
+        <tr>
+          <td>Timestamp: </td>
+          <td>{{ timestamp }}</td>
+        </tr>
+        <tr>
+          <td>Latest image: </td>
+          <td>{{ images[0] }}</td>
+        </tr>
+        <tr>
+          <td>Images taken: </td>
+          <td>{{ images|length }}</td>
+        </tr>
+      </table>
+    </div>
+
     <div>
-      {% for file in files %}
-        <img src="{{ file }}" />
+      {% for image in images %}
+      <div class="thumbnail" data-image="{{ image }}">
+        <button type="button" class="btn btn-danger">&#10006;</button>
+        <img src="{{ image }}" />
+      </div>
       {% endfor %}
     </div>
 
+    <script src="static/scripts/jquery.js"></script>
+    <script src="static/scripts/bootstrap.js"></script>
+    <script src="static/scripts/main.js"></script>
   </body>
 </html>
