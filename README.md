@@ -57,14 +57,11 @@ $ apt-get install apache2
 You should be able to acess the apache homepage now by connecting to the wifi network and going to `http://10.0.0.1`
 
 # Mount USB drive (to store the images)
+Run `lsblk` to see where your USB stick is
 ```
-$ mkdir /media/usbstick
-$ mount -t vfat -o rw /dev/sda1 /media/usbstick/
-$ mount -t vfat -o uid=pi,gid=pi /dev/sda1 /media/usbstick/
+$ sudo nano /etc/fstab
 ```
-
-Credit:
-- http://raspi.tv/2012/mount-a-usb-flash-drive-on-raspberry-pi
+Add `/dev/sda1 /media/usb` to the bottom of the file
 
 
 # Communicating with the LinkitOne
