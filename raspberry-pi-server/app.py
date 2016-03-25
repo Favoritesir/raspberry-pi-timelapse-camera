@@ -1,7 +1,7 @@
 import os, datetime
 from flask import Flask, render_template, send_from_directory, request
 
-FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
+FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
 #FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
 
 app = Flask(__name__)

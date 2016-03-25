@@ -2,7 +2,7 @@ import datetime, math, serial, picamera
 from geopy.distance import vincenty
 
 SERIAL_PORT_USED_BY_LINKITONE = '/dev/ttyACM0'
-FOLDER_TO_SAVE_IMAGES_TO = '/media/usbstick'
+FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
 
 print 'Initializing camera...'
 camera = picamera.PiCamera()
@@ -46,7 +46,7 @@ if latlong_is_accurate:
     camera.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/100' % (dlon, mlon, slon)
 
 print 'Taking picture...'
-timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H%M')
 filename = '{}/{}.{}'.format(FOLDER_TO_SAVE_IMAGES_TO, timestamp, 'jpg')
 camera.capture(filename)
 print '- Image saved as {}'.format(filename)
