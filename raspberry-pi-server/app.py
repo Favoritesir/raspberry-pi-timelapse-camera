@@ -1,6 +1,6 @@
-import os, datetime, logging
+import os, datetime
 from flask import Flask, render_template, send_from_directory, request
-from logging.handlers import RotatingFileHandler
+
 
 FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
 #FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
@@ -38,9 +38,6 @@ def delete_image():
     return "Deleting img: {}".format(image)
 
 if __name__ == '__main__':
-    handler = RotatingFileHandler('/var/www/html/index.html', maxBytes=10000, backupCount=1)
-    handler.setLevel(logging.INFO)
-    app.logger.addHandler(handler)
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)
