@@ -2,8 +2,7 @@
 
 
 # Setup
-- Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/)
-- SSH into the Pi and run:
+Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) onto your Raspberry Pi and run:
 ```
 $ sudo -s
 $ apt-get install hostapd dnsmasq git python-pip apache2 python-serial
