@@ -5,6 +5,7 @@ SERIAL_PORT_USED_BY_LINKITONE = '/dev/ttyACM0'
 FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
 
 print 'Initializing camera...'
+camera.hflip = True
 camera = picamera.PiCamera()
 camera.led = False
 
