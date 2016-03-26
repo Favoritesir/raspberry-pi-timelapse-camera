@@ -8,9 +8,15 @@ img{
   width: 100%;
   border-radius: 4px;
 }
-.btn-danger{
+.btn{
   position: absolute;
-  right: 15px;
   border: none;
+}
+.btn-default{
+  opacity: 0.5;
+  border-radius: 4px 0 4px 0;
+}
+.btn-danger{
+  right: 15px;
   border-radius: 0 4px 0 4px;
 }

@@ -12,12 +12,16 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        Stats
+        <span>Stats</span><a href="javascript:window.location.href=window.location.href" class="pull-right">Refresh</a>
       </div>
       <table class="table">
         <tr>
-          <td>Timestamp: </td>
+          <td>Server timestamp: </td>
           <td>{{ timestamp }}</td>
+        </tr>
+        <tr>
+          <td>Javascript timestamp: </td>
+          <td><script>document.write(new Date().toLocaleString())</script></td>
         </tr>
         <tr>
           <td>Latest image: </td>
@@ -34,8 +38,8 @@
       {% for image in images %}
       <div class="thumbnail" data-image="{{ image }}">
         <button type="button" class="btn btn-danger">&#10006;</button>
+        <button type="button" class="btn btn-default">{{ image }}</button>
         <img src="{{ image }}" />
-        <span class="text-muted">{{ image }}</span>
       </div>
       {% endfor %}
     </div>

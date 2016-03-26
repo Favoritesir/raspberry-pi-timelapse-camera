@@ -15,15 +15,16 @@ app = Flask(__name__)
 def hello():
     files = os.listdir(FOLDER_TO_SAVE_IMAGES_TO)
     files = sorted(files, reverse=True)
-    total_image_count = len(files)
+    total_image_count = 0
     images = []
-    for image in files[:30]:
+    for image in files:
         if '.jpg' in image:
             images.append('/image/{}'.format(image))
+            total_image_count += 1
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return render_template(
         'index.html',
-        images=images,
+        images=images[:30],
         total_image_count=total_image_count,
         timestamp=timestamp)
 
@@ -42,4 +43,4 @@ def delete_image():
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
