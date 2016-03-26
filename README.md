@@ -1,8 +1,9 @@
 # raspberry-pi-timelapse-camera
 
 
-# Setup Access Point
-After install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) run:
+# Setup
+- Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/)
+- SSH into the Pi and run:
 ```
 $ sudo -s
 $ apt-get install hostapd dnsmasq git python-pip apache2 python-serial
@@ -11,6 +12,8 @@ $ apt-get upgrade
 $ git clone https://github.com/Manoj-nathwani/raspberry-pi-timelapse-camera.git
 ```
 
+
+# Setup Access Point
 Edit the `iface wlan0` part of your `/etc/network/interfaces` file to look like:
 ```
 iface wlan0 inet static
