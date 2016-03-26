@@ -1,10 +1,15 @@
 import os, datetime
 from flask import Flask, render_template, send_from_directory, request
 
-FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
-#FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
+# lazy config
+username = os.getlogin()
+if username == 'pi':
+    FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
+elif username == 'manoj':
+    FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def hello():
