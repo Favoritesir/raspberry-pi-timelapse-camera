@@ -11,7 +11,7 @@ def hello():
     files = os.listdir(FOLDER_TO_SAVE_IMAGES_TO)
     files = sorted(files, reverse=True)
     images = []
-    for image in files:30:
+    for image in files[:30]:
         if '.jpg' in image:
             images.append('/image/{}'.format(image))
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
