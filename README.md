@@ -1,13 +1,14 @@
 # raspberry-pi-timelapse-camera
 
+
 # Setup Access Point
 After install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) run:
 ```
 $ sudo -s
-$ apt-get install hostapd
-$ apt-get install dnsmasq
+$ apt-get install hostapd dnsmasq git python-pip apache2 python-serial
 $ apt-get update
 $ apt-get upgrade
+$ git clone https://github.com/Manoj-nathwani/raspberry-pi-timelapse-camera.git
 ```
 
 Edit the `iface wlan0` part of your `/etc/network/interfaces` file to look like:
@@ -50,11 +51,6 @@ Credit:
 - http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1
 - https://nims11.wordpress.com/2012/04/27/hostapd-the-linux-way-to-create-virtual-wifi-access-point
 
-# Setup local server
-```
-$ apt-get install apache2
-```
-You should be able to acess the apache homepage now by connecting to the wifi network and going to `http://10.0.0.1`
 
 # Mount USB drive (to store the images)
 Run `lsblk` to see where your USB stick is
@@ -64,21 +60,32 @@ $ sudo nano /etc/fstab
 Add `/dev/sda1 /media/usb` to the bottom of the file
 
 
-# Communicating with the LinkitOne
-Deploy the LinkitOne application through the regular Arduino upload method. Then connect it to the Raspberry Pi and run:
+# Setup linkit-one-code
+Deploy the LinkitOne application through the regular Arduino upload method.
+
+
+# Setup raspberry-pi-server
 ```
-$ apt-get install python-serial
-$ apt-get install git
-$ apt-get install python-pip
-$ cd raspberry-pi-timelapse-camera/raspberry-pi-code
+$ cd /home/pi/raspberry-pi-timelapse-camera/raspberry-pi-server
 $ pip install -r requirments.txt
 $ python app.py
 ```
 
-# Running the Flask app
+
+# Setup raspberry-pi-code
 ```
-$ apt-get install python-pip
-$ cd raspberry-pi-timelapse-camera/raspberry-pi-code
+$ cd /home/pi/raspberry-pi-timelapse-camera/raspberry-pi-code
 $ pip install -r requirments.txt
 $ python app.py
+```
+
+
+# Setup crontab
+Edit your crontab by by running `crontab -e` and adding the following to the end of the file:
+```
+# run flask web server @ 10.0.0.1:5000
+@reboot python /home/pi/raspberry-pi-timelapse-camera/raspberry-pi-server/app.py
+
+# take a picture every 1 min
+* * * * * /home/pi/raspberry-pi-timelapse-camera/raspberry-pi-code/app.py
 ```
