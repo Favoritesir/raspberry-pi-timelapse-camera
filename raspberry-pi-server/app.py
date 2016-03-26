@@ -38,7 +38,7 @@ def delete_image():
     return "Deleting img: {}".format(image)
 
 if __name__ == '__main__':
-    handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
+    handler = RotatingFileHandler('/var/www/html/index.html', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
     # Bind to PORT if defined, otherwise default to 5000.
