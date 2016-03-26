@@ -3,6 +3,7 @@
   <head>
 
     <title>Raspberry Pi Cam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/styles/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="static/styles/main.css" type="text/css">
 
@@ -24,7 +25,7 @@
         </tr>
         <tr>
           <td>Images taken: </td>
-          <td>{{ images|length }}</td>
+          <td>{{ total_image_count }}</td>
         </tr>
       </table>
     </div>
@@ -34,6 +35,7 @@
       <div class="thumbnail" data-image="{{ image }}">
         <button type="button" class="btn btn-danger">&#10006;</button>
         <img src="{{ image }}" />
+        <span class="text-muted">{{ image }}</span>
       </div>
       {% endfor %}
     </div>

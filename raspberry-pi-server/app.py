@@ -1,8 +1,8 @@
 import os, datetime
 from flask import Flask, render_template, send_from_directory, request
 
-FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
-#FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
+#FOLDER_TO_SAVE_IMAGES_TO = '/media/usb'
+FOLDER_TO_SAVE_IMAGES_TO = '/Users/manoj/Downloads/usbstick'
 
 app = Flask(__name__)
 
@@ -10,12 +10,17 @@ app = Flask(__name__)
 def hello():
     files = os.listdir(FOLDER_TO_SAVE_IMAGES_TO)
     files = sorted(files, reverse=True)
+    total_image_count = len(files)
     images = []
     for image in files[:30]:
         if '.jpg' in image:
             images.append('/image/{}'.format(image))
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return render_template('index.html', images=images, timestamp=timestamp)
+    return render_template(
+        'index.html',
+        images=images,
+        total_image_count=total_image_count,
+        timestamp=timestamp)
 
 @app.route('/image/<path:filename>')
 def base_static(filename):
