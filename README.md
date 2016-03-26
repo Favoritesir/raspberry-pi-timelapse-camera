@@ -74,3 +74,11 @@ $ cd raspberry-pi-timelapse-camera/raspberry-pi-code
 $ pip install -r requirments.txt
 $ python app.py
 ```
+
+# Running the Flask app
+```
+$ apt-get install python-pip
+$ cd raspberry-pi-timelapse-camera/raspberry-pi-code
+$ pip install -r requirments.txt
+$ python app.py
+```
