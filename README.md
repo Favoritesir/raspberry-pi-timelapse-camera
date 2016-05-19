@@ -92,3 +92,34 @@ Edit your crontab by by running `crontab -e` and adding the following to the end
 # take a picture every 1 min
 * * * * * /home/pi/raspberry-pi-timelapse-camera/raspberry-pi-code/app.py
 ```
+
+# Setup RTC
+```
+apt-get install i2c-tools
+```
+
+Edit `/boot/config.txt` and append:
+```
+device_tree_param=i2c_arm=on
+```
+
+Edit `/boot/cmdline.txt` and append:
+```
+bcm2708.vc_i2c_override=1
+```
+
+Edit `/etc/modules-load.d/raspberrypi.conf` and append:
+```
+i2c-bcm2708
+i2c-dev
+```
+
+Follow the instrucitons here: https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi
+
+Credit:
+- http://www.runeaudio.com/forum/how-to-enable-i2c-t1287.html
+- https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi
+
+
+
+
