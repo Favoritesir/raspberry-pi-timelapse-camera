@@ -5,8 +5,8 @@
 Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) onto your Raspberry Pi and run:
 ```
 $ sudo -s
-$ apt-get install hostapd dnsmasq git python-pip apache2 python-serial -y
 $ apt-get update
+$ apt-get install hostapd dnsmasq git python-pip apache2 python-serial -y
 $ apt-get upgrade
 $ git clone https://github.com/Manoj-nathwani/raspberry-pi-timelapse-camera.git
 ```
