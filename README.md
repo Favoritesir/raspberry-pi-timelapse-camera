@@ -57,6 +57,7 @@ Credit:
 # Mount USB drive (to store the images)
 Run `lsblk` to see where your USB stick is
 ```
+$ sudo mkdir /media/usb
 $ sudo nano /etc/fstab
 ```
 Add `/dev/sda1 /media/usb` to the bottom of the file
