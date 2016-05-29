@@ -1,4 +1,4 @@
-# raspberry-pi-timelapse-camera
+# Raspberry Pi Wearable Timelapse Camera
 ![](https://farm8.staticflickr.com/7223/26909712545_9590e9eca3_b.jpg)
 
 # Setup
