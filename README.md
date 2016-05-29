@@ -1,5 +1,6 @@
 # Raspberry Pi Wearable Timelapse Camera
 ![](https://farm8.staticflickr.com/7223/26909712545_9590e9eca3_b.jpg)
+### Read about the project here: [http://manoj.ninja](http://manoj.ninja/articles/2016/05/09/building-a-wearable-camera)
 
 # Setup
 Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) onto your Raspberry Pi and run:
