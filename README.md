@@ -1,5 +1,5 @@
 # raspberry-pi-timelapse-camera
-
+![](https://farm8.staticflickr.com/7223/26909712545_9590e9eca3_b.jpg)
 
 # Setup
 Install [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) onto your Raspberry Pi and run:
